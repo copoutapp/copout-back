@@ -1,0 +1,20 @@
+# helpers
+/helper
+
+# static
+/static
+
+# local settings
+mapbackend/settings_local.py
+
+#
+*.pyc
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+#
+.vscode
+.DS_Store
