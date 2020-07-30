@@ -21,6 +21,7 @@ import django_eventstream
 urlpatterns = [
     # re_path(r'^api-auth/', include('rest_framework.urls')),
     url(r'^api/v0/event/new', views.EventCreateView.as_view()),
+    url(r'^api/v0/event/report', views.ReportCreateView.as_view()),
     url(r'^api/v0/event/recent/(?P<city>\w+)',
         views.EventRecentListView.as_view()),
     url(r'^api/v0/event/myrecent/(?P<city>\w+)',
