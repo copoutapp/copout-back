@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 import uuid
 
-from map.models import Event, SignupToken
+from map.models import Event, SignupToken, Report
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -60,3 +60,20 @@ class SignupTokenSerializer(serializers.ModelSerializer):
             instance.user = user
             instance.save()
         return instance
+
+
+class ReportSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = Report
+        fields = [
+            'uuid',
+            'user',
+            'event',
+            'message',
+        ]
+
+    def create(self, validated_data):
+        report = super(ReportSerializer, self).create(validated_data)
+        return report

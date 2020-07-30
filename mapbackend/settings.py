@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+VERSION = '0.1.6'
 
 # TBD: FIX, DEVELOPMENT ONLY
 CORS_ORIGIN_ALLOW_ALL = True

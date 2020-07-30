@@ -6,8 +6,8 @@ from rest_framework import generics
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.parsers import JSONParser
 from datetime import timedelta
-from map.models import Event, SignupToken
-from map.serializers import EventSerializer, EventShortSerializer, SignupTokenSerializer
+from map.models import Event, SignupToken, Report
+from map.serializers import EventSerializer, EventShortSerializer, SignupTokenSerializer, ReportSerializer
 
 # Create your views here.
 
@@ -87,6 +87,11 @@ class SignupTokenView(generics.UpdateAPIView):
         uuid = self.request.data["uuid"]
         result = SignupToken.objects.get(uuid=uuid, user__isnull=True)
         return result
+
+
+class ReportCreateView(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ReportSerializer
 
 
 class HealthCheckView(View):
